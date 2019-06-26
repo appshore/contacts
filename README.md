@@ -2,21 +2,24 @@
 
 This is a half baked React/GraphQL/Node web app. More to come in the next days.
 
-## Features to implement
+## Features implemented
 
 - List Contacts
+- Delete Contact
+- Use material-ui for components
+- Connect to the graphql endpoint http://localhost:3001 by using create-react-app proxy feature
+- Use the graphql endpoint to get/create/update/delete
+
+## Features to implement
+
 - View Contact
 - Add Contact
-- Delete Contact
 - Edit Contact
 - Clean routing i.e '/contact/:id'
-- Use material-ui for components
 
 ### Bonuses
 
 - Use [xstate](https://xstate.js.org/docs) to manage app state.
-- Connect to the graphql endpoint http://localhost:3001 by using create-react-app proxy feature
-- Use the graphql endpoint to get/create/update/delete
 
 ### Contact
 
