@@ -1,5 +1,7 @@
 # Contact Manager
 
+This is a half baked React/GraphQL/Node web app. More to come in the next days.
+
 ## Features to implement
 
 - List Contacts
