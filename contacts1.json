@@ -1,0 +1,19 @@
+{
+  "contacts": [
+    {
+      "name": "Janet Doe",
+      "email": "jane@doe.com",
+      "id": "SZuuoBIHVRYuWGWavPYH2"
+    },
+    {
+      "name": "John Doe",
+      "email": "john@doe.com",
+      "id": "dfgdfgfdgdfgdf"
+    },
+    {
+      "name": "Jim Doe",
+      "email": "jim@doe.com",
+      "id": "ty54ythgfhfghgf"
+    }
+  ]
+}
