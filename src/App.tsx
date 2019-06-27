@@ -1,13 +1,20 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 import Contacts from './Contacts';
+import ContactView from './ContactView';
 
 const App = () => {
   return (
-    <Container maxWidth="lg">
-      <Contacts />
-    </Container>
+    <BrowserRouter>
+      <Switch>
+          {/* special routes to download documents */}
+          <Route path="/contact/:id" component={ContactView} />
+
+          {/* standard routes */}
+          <Route component={Contacts}/>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
