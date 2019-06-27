@@ -1,6 +1,6 @@
 # Contact Manager
 
-This is a half baked React/GraphQL/Node web app. More to come in the next days.
+This is a React/GraphQL/Node web app. More to see in the coming days.
 
 ## Features implemented
 
