@@ -1,57 +1,57 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom'
 import { Mutation } from 'react-apollo';
 
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 import Input from '@material-ui/core/Input';
-
-import SaveIcon from '@material-ui/icons/Save';
+import Typography from '@material-ui/core/Typography';
 
 import { SAVE_CONTACT } from './Contact';
 
-const ContactSave = ({ id }: any) => {
+const ContactNew = ({ id }: any) => {
   return (
     <Mutation mutation={SAVE_CONTACT} variables={{ id }}>
       {(saveContact: any, result: any) => {
-        console.log('Save contact result', result);
-        const { data, error } = result;
+        const { error } = result;
 
         if (error) {
           return (
             <p>{`Error - ${error}`}</p>
           );
         };
-        if (data && data.saveContact) {
-          return (
-            <p>{'Contact deleted!'}</p>
-          );
-        };
 
         return (
-          <Fragment>
-            <Input
-              defaultValue=""
-              placeholder="Name"
-            />
-            <Input
-              defaultValue=""
-              placeholder="Email"
-            />
-            <IconButton edge="end" onClick={() => saveContact(id)}>
-              <SaveIcon />
-            </IconButton>
-          </Fragment>
+          <Card>
+            <CardContent>
+              <Typography variant="h5" component="h2">
+                New contact
+              </Typography>
+              <div>
+                <Input
+                  name="name"
+                  defaultValue=""
+                  placeholder="Name"
+                />
+              </div>
+              <div>
+                <Input
+                  name="email"
+                  defaultValue=""
+                  placeholder="Email"
+                />
+              </div>
+            </CardContent>
+            <CardActions>
+              <Button size="small"><Link to="/">Cancel</Link></Button>
+              <Button size="small" onClick={() => saveContact(id)}>Save</Button>
+            </CardActions>
+          </Card>
         );
       }}
     </Mutation>
-  );
-}
-
-const ContactNew = () => {
-  return (
-    <Button variant="contained" onClick={() => <ContactSave />}>
-      New contact
-    </Button>
   );
 }
 
