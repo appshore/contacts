@@ -24,6 +24,7 @@ const server = new ApolloServer({
     },
     Mutation: {
       async addContact(_, { contact }) {
+        console.log('add contact', contact);
         let newContact = { ...contact, id: uid() };
         await db
           .get("contacts")
