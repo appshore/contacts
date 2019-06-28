@@ -6,6 +6,16 @@ const DELETE_CONTACT = gql`
   }
 `;
 
+const GET_CONTACT = gql`
+  query contactGet( $id: ID!) {
+    contact( id: $id) {
+      name
+      email
+      id
+    }
+  }
+`;
+
 const GET_CONTACTS = gql`
   query contactsList {
     contacts {
@@ -30,6 +40,7 @@ const UPDATE_CONTACT = gql`
 
 export {
   DELETE_CONTACT,
+  GET_CONTACT,
   GET_CONTACTS,
   SAVE_CONTACT,
   UPDATE_CONTACT
