@@ -2,16 +2,18 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 import Contacts from './Contacts';
+import ContactEdit from './ContactEdit';
+import ContactNew from './ContactNew';
 import ContactView from './ContactView';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-          {/* special routes to download documents */}
-          <Route path="/contact/:id" component={ContactView} />
+          <Route exact path="/contact/:id" component={ContactView} />
+          <Route exact path="/contact/:id/edit" component={ContactEdit} />
+          <Route exact path="/contact" component={ContactNew} />
 
-          {/* standard routes */}
           <Route component={Contacts}/>
       </Switch>
     </BrowserRouter>
