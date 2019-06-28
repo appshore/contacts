@@ -9,6 +9,8 @@ import { HttpLink } from 'apollo-link-http';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import './index.css';
+
 const apolloClient = new ApolloClient({
   cache: new InMemoryCache(), 
   link: new HttpLink({
