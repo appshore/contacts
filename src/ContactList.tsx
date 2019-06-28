@@ -23,7 +23,7 @@ const ContactList = () => {
             <p>{`Error - ${error}`}</p>
           );
         };
-        if (!data) {
+        if (!data || !data.contacts) {
           return (
             <p>No contacts</p>
           );
