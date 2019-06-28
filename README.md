@@ -1,6 +1,10 @@
 # Contact Manager
 
-This is a React/GraphQL/Node web app. More to see in the coming days.
+Built with 
+- React.js
+- Material-ui
+- GraphQL
+- Node.js
 
 ## Features implemented
 
