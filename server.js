@@ -24,7 +24,6 @@ const server = new ApolloServer({
     },
     Mutation: {
       async addContact(_, { contact }) {
-        console.log('add contact', contact);
         let newContact = { ...contact, id: uid() };
         await db
           .get("contacts")
@@ -33,7 +32,6 @@ const server = new ApolloServer({
         return newContact;
       },
       async deleteContact(_, { id }) {
-        console.log('delete', id);
         await db
           .get("contacts")
           .remove({ id })
@@ -63,18 +61,18 @@ const server = new ApolloServer({
 
     input InputContact {
       id: ID
-      name: String
-      email: String
+      name: String!
+      email: String!
     }
 
     type Query {
       contacts: [Contact]
-      contact(id: ID): Contact
+      contact(id: ID!): Contact
     }
 
     type Mutation {
       addContact(contact: InputContact): Contact
-      deleteContact(id: ID): Boolean
+      deleteContact(id: ID!): Boolean
       updateContact(contact: InputContact): Contact
     }
   `

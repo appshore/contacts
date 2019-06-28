@@ -1,17 +1,27 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo';
 
+import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
 
+import EditIcon from '@material-ui/icons/Edit';
+
+import ContactDelete from './ContactDelete';
 import { GET_CONTACTS } from './Contact';
 import { ContactInterface } from './Contact.d';
 
-import ContactLine from './ContactLine';
-
 const ContactList = () => {
   return (
-    <Query query={GET_CONTACTS}>
-      {({ data, loading, error }: any) => {
+    <Query
+      query={GET_CONTACTS}
+      fetchPolicy="no-cache"
+    >
+      {(result: any) => {
+        const { data, loading, error, refetch } = result;
 
         if (loading) {
           return (
@@ -32,9 +42,21 @@ const ContactList = () => {
         return (
           <List>
             {
-              data.contacts.map((contact: ContactInterface) =>
-                <ContactLine key={contact.id} {...contact} />
-              )
+              data.contacts.map(({ id, name, email }: ContactInterface) => {
+                return (
+                  <ListItem key={id}>
+                    <Link to={`/contact/${id}`}>
+                      <ListItemText id={id} primary={`${name} (${email})`} />
+                    </Link>
+                    <ListItemSecondaryAction>
+                      <Link to={`/contact/${id}/edit`}>
+                        <IconButton edge="end"><EditIcon /></IconButton>
+                      </Link>
+                      <ContactDelete id={id} refetch={refetch}/>
+                    </ListItemSecondaryAction>
+                  </ListItem>
+                );
+              })
             }
           </List>
         );

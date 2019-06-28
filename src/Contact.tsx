@@ -27,14 +27,20 @@ const GET_CONTACTS = gql`
 `;
 
 const SAVE_CONTACT = gql`
-  mutation contactSave( $contact: Contact!) {
-    addContact( contact: $contact)
+  mutation contactSave( $contact: InputContact) {
+    addContact( contact: $contact) {
+      id
+    }
   }
 `;
 
 const UPDATE_CONTACT = gql`
-  mutation contactUpdate( $contact: Contact!) {
-    updateContact( contact: $contact)
+  mutation contactUpdate( $contact: InputContact) {
+    updateContact( contact: $contact) {
+      name
+      email
+      id
+    }
   }
 `;
 
