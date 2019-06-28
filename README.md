@@ -5,17 +5,17 @@ This is a React/GraphQL/Node web app. More to see in the coming days.
 ## Features implemented
 
 - List Contacts
+- View Contact
 - Delete Contact
 - Use material-ui for components
 - Connect to the graphql endpoint http://localhost:3001 by using create-react-app proxy feature
 - Use the graphql endpoint to get/create/update/delete
+- Clean routing i.e '/contact/:id'
 
 ## Features to implement
 
-- View Contact
 - Add Contact
 - Edit Contact
-- Clean routing i.e '/contact/:id'
 
 ### Bonuses
 
